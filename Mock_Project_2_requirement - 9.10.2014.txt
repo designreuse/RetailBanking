@@ -1,0 +1,86 @@
+Mini Project - Retail Banking
+------------------------------------------------------------------
+
+Create a Java Web Application using HTML, CSS, JavaScript, JSP, JDBC and AJAX to manage Personal Banking Services. Consider the following points as part of requirement:
+
+1. CRUD (Create, Retrieve, Update and Delete) operations for
+	A. Types of Accounts
+	B. Customers
+
+2. Range of Online Banking Services to be made available for customers
+
+3. Must be able to generate reports (.xls) on various scenarios
+
+4. Nice to have (Not mandatory)
+	A. Generating Graphs (Bar / Pie) for some data
+
+Important Note:
+	
+1. Create a Functional Specification Document mentioning the scope and functionalities of this project along with the Story Board and Database design.
+
+2. Design Patterns - Nice to have
+
+3. Validations - Must have 
+
+1.
+admin can CRUD user, transaction, account,card
+user can only create transaction,retrieve his transaction,account info,card info,upload check photo]
+register
+
+
+Create:
+User
+  -ID(pk)
+  —name
+  -email
+  -address
+  -SSN
+  -date of birth
+
+account
+  -account type:checking,saving,credit
+  -number(based on userID)
+  -balance
+   
+reference user
+
+transaction(FINAL)
+   -Tid
+   -date
+   -amount
+   -sender
+   -receiver
+   -description
+   -type(refe type)
+ 
+  reference account number
+
+type
+ 	-deposit
+	-withdraw
+	-transfer
+     -check
+     -debit card
+     -credit
+	-other payments
+   
+card
+ -uid(reference)
+ -type:credit,debit
+ -number
+ -expire date
+ -name
+ -code
+
+2.services:
+-deposit
+-withdraw
+-transfer
+-debit card
+
+
+3.report :
+-Income
+-spending
+-Goals
+-Pie chart for transactions based on month/year
