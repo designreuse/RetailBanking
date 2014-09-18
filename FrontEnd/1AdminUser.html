@@ -151,10 +151,56 @@
                             </div>
                         </div>
 
-                        <a href="new-user.html" class="btn-flat success pull-right">
+                        <a  data-toggle="modal"href="#addUser"role="button"class="btn-flat success pull-right">
                             <span>&#43;</span>
                             NEW USER
                         </a>
+                        <div id="addUser" class="modal hide fade" role="dialog">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <form>
+                        <div class="modal-header" style="padding:20px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Add User</h4>
+                        </div>
+                        <div class="modal-body">
+                        
+                        <div class=" field-box">
+                        <label>Name:</label>
+                        <input class="span9" type="text" />
+                        </div>
+                        <div class=" field-box">
+                        <label>Date Of Birth:</label>
+                        <input class="span9" type="text" />
+                        </div>
+                        <div class=" field-box">
+                        <label>Email:</label>
+                        <input class="span9" type="text" />
+                        </div>
+                        <div class=" field-box">
+                        <label>Phone:</label>
+                        <input class="span9" type="text" />
+                        </div>
+                        <div class=" field-box">
+                        <label>SSN:</label>
+                        <input class="span9" type="text" />
+                        </div>
+                        <div class=" field-box">
+                        <label>Address:</label>
+                        <div class="address-fields">
+                        <input class="span9" type="text" placeholder="Street address" />
+                        
+                        </div>
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+                        <button type="button" class="btn btn-primary add-record-submit">Submit</button>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
 
@@ -192,10 +238,54 @@
                             </td>
                             <td class="align-right">
                                 <ul class="actions">
-                                    <li><i class="table-edit"></i></li>
+                                    <li><a  data-toggle="modal"href="#editUser"role="button"><i class="table-edit"></i></a></li>
                                     <li class="last"><i class="table-delete"></i></li>
                                 </ul>
                             </td>
+                                    <div id="editUser" class="modal hide fade" role="dialog">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header" style="padding:20px;">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">Update User</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    
+                                    <div class=" field-box">
+                                    <label>Name:</label>
+                                    <input class="span9" type="text" />
+                                    </div>
+                                    <div class=" field-box">
+                                    <label>Date Of Birth:</label>
+                                    <input class="span9" type="text" />
+                                    </div>
+                                    <div class=" field-box">
+                                    <label>Email:</label>
+                                    <input class="span9" type="text" />
+                                    </div>
+                                    <div class=" field-box">
+                                    <label>Phone:</label>
+                                    <input class="span9" type="text" />
+                                    </div>
+                                    <div class=" field-box">
+                                    <label>SSN:</label>
+                                    <input class="span9" type="text" />
+                                    </div>
+                                    <div class=" field-box">
+                                    <label>Address:</label>
+                                    <div class="address-fields">
+                                    <input class="span9" type="text" placeholder="Street address" />
+                                    
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+                                    <button type="button" class="btn btn-primary add-record-submit">Submit</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
                         </tr>
 
                         </tbody>
