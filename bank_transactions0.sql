@@ -18,31 +18,32 @@ USE `bank`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `User`
+-- Table structure for table `transactions`
 --
 
-DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `transactions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `User` (
-  `userid` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(200) DEFAULT NULL,
-  `email` varchar(200) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
-  `address` varchar(300) DEFAULT NULL,
-  `ssn` varchar(50) DEFAULT NULL,
-  `birthday` datetime DEFAULT NULL,
-  PRIMARY KEY (`userid`)
+CREATE TABLE `transactions` (
+  `transactionsid` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `sender` varchar(200) DEFAULT NULL,
+  `receiver` varchar(200) DEFAULT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`transactionsid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `transactions`
 --
 
-LOCK TABLES `User` WRITE;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-17 10:15:01
+-- Dump completed on 2014-09-17 10:21:27

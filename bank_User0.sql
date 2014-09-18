@@ -18,30 +18,32 @@ USE `bank`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `account`
+-- Table structure for table `User`
 --
 
-DROP TABLE IF EXISTS `account`;
+DROP TABLE IF EXISTS `User`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `account` (
-  `accountnumber` int(11) NOT NULL,
-  `accounttype` varchar(100) DEFAULT NULL,
-  `balance` double DEFAULT NULL,
-  `userid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`accountnumber`),
-  KEY `userid_idx` (`userid`),
-  CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `User` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `User` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `address` varchar(300) DEFAULT NULL,
+  `ssn` varchar(50) DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `account`
+-- Dumping data for table `User`
 --
 
-LOCK TABLES `account` WRITE;
-/*!40000 ALTER TABLE `account` DISABLE KEYS */;
-/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+LOCK TABLES `User` WRITE;
+/*!40000 ALTER TABLE `User` DISABLE KEYS */;
+INSERT INTO `User` VALUES (1,'duan','dzf@gmail.com',55120853,'hoboken,NJ','222222','1000-01-01 00:00:00'),(2,'deng','dyg@gmail.com',212121212,'lehigh,pa','222111','1000-01-01 00:00:00'),(3,'han','hx@gmail.com',181489616,'jhudsu,koko','456456','1000-01-01 00:00:00');
+/*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-17 10:15:01
+-- Dump completed on 2014-09-17 10:21:27
