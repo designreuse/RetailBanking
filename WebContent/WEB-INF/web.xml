@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Bank</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  <servlet-name>add</servlet-name>
+  <servlet-class>transactionServlets.addTransaction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>add</servlet-name>
+  <url-pattern>/add_transaction/*</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <servlet-name>delete</servlet-name>
+  <servlet-class>transactionServlets.deleteTransaction</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  <servlet-name>delete</servlet-name>
+  <url-pattern>/delete_transaction/*</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <servlet-name>edit</servlet-name>
+  <servlet-class>transactionServlets.editTransaction</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  <servlet-name>edit</servlet-name>
+  <url-pattern>/edit_transaction/*</url-pattern>
+</servlet-mapping>
+  <servlet>
+  <servlet-name>transfer</servlet-name>
+  <servlet-class>transactionServlets.transferMoney</servlet-class>
+  </servlet>
+   <servlet-mapping>
+  <servlet-name>transfer</servlet-name>
+  <url-pattern>/transfer_transaction/*</url-pattern>
+</servlet-mapping>
+  
+</web-app>

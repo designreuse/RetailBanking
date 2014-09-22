@@ -1,5 +1,5 @@
 
-<%@ page import="java.io.IOException,DBconnect.*,java.sql.*" %>
+<%@ page import="java.io.IOException,com.bank.*,java.sql.*" %>
 <%@ page import="javax.xml.transform.Result" %>
 <%! Connection con = DBM.getConn();
     Statement st = DBM.getState(con);
@@ -97,16 +97,16 @@
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a href="index.html">
+                <a href="AdminUser.jsp">
                     <i class="icon-home"></i>
-                    <span>Home</span>
+                    <span>Users</span>
                 </a>
             </li>            
             <li>
                 <!-- transfer page -->
-                <a href="#">
+                <a href="AdminAccount.jsp">
                     <i class="icon-signal"></i>
-                    <span>Transfer</span>
+                    <span>Account</span>
                 </a>
             </li>
             <li>

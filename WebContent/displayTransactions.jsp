@@ -1,3 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*, com.bank.*, java.util.*"%>
+
+<%
+Connection conn = DBM.getConn();
+String sql = "Select * From transactions";
+Statement state = DBM.getState(conn);
+ResultSet rs = DBM.executeQuery(state,sql);
+%>
+
 <%--
   Created by IntelliJ IDEA.
   User: franklin
@@ -36,9 +47,7 @@
         <!-- row -->
 
 
-        <% try{
-            String sql = "Select * From transactions";
-            ResultSet rs = DBM.executeQuery(st,sql);
+        <% 
             while (rs.next()){
 
         %>
@@ -56,7 +65,7 @@
                 <%=rs.getString(7)%>
             </td>
             <td >
-               <span>$ </span></span><%=rs.getDouble(3)%>
+               <span>$ </span><%=rs.getDouble(3)%>
             </td>
             <td >
                 <%=rs.getString(8)%>
@@ -78,11 +87,8 @@
         </tr>
 
         <%
-                }
-
-            }catch(Exception e){
-                e.printStackTrace();
-            }%>
+         }
+        %>
 
 
 
