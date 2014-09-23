@@ -63,7 +63,7 @@ if(name!=""&&pw!=""){
 			ps3.executeUpdate();
 		    System.out.println(checknum+" "+savenum);
 		    //session.setAttribute("userid",userid);
-		    response.sendRedirect("copyOfUserProfile.jsp?user="+userid);
+		    response.sendRedirect("index.jsp?user="+userid);
 		    //response.sendRedirect("UserProfile.jsp?");
 			DBM.close(ps2);
 			DBM.close(ps3);

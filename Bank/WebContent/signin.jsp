@@ -78,7 +78,7 @@
                         	document.location= 'AdminUser.jsp';
                         		//$("#wmsg").html("Admin");
                         	else
-                        	document.location='UserProfile.jsp?user='+msg;
+                        	document.location='index.jsp?user='+msg;
                         		//$("#wmsg").html(msg);
                         }
                         else{

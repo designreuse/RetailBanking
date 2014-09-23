@@ -63,7 +63,7 @@ public class transfer_Money extends HttpServlet {
             //if current balance<=0, return error
             if(currentBalance<=amount){
                 response.setContentType("text/javascript");
-                response.getWriter().println("<script>alert('not enough balance, please make sure it's more than 0!')</script>");
+                response.getWriter().println("<h1>alert('not enough balance, please make sure it's more than 0!')</h1>");
             }
 
             else{

@@ -101,14 +101,14 @@ ResultSet rs  = prestate.executeQuery();
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a href="index.html">
+                <a href="index.jsp">
                     <i class="icon-home"></i>
                     <span>Home</span>
                 </a>
             </li>            
             <li>
                 <!-- transfer page -->
-                <a href="#">
+                <a href="transfer.jsp">
                     <i class="icon-signal"></i>
                     <span>Transfer</span>
                 </a>
@@ -116,15 +116,11 @@ ResultSet rs  = prestate.executeQuery();
             <li>
             <li>
                <!--  Transaction records -->
-                <a class="dropdown-toggle" href="#">
+                <a  href="userAccountFromSignIn.jsp">
                     <i class="icon-edit"></i>
                     <span>Transaction</span>
                     <i class="icon-chevron-down"></i>
                 </a>
-                <ul class="submenu">
-                    <li><a href="form-showcase.html">Form showcase</a></li>
-                    <li><a href="form-wizard.html">Form wizard</a></li>
-                </ul>
             </li>
 
             <li>

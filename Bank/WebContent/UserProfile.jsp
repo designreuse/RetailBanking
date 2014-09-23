@@ -6,9 +6,6 @@ Connection con = DBM.getConn();
 Statement state = DBM.getState(con);
 //String strId = request.getParameter("userid");
 //int id = Integer.parseInt(strId);
-String strId = request.getParameter("user");
-int id = Integer.parseInt(strId);
-session.setAttribute("userid",id);
 String strSessionId = session.getAttribute("userid").toString();
 int sessionId = Integer.parseInt(strSessionId);
 //String strSignInId = request.getParameter("user");
@@ -33,7 +30,7 @@ if(action != null && action.trim().equals("post") ){
 	String password = request.getParameter("newpassword");
 	boolean autoCommit = con.getAutoCommit();
 	con.setAutoCommit(false);
-	String updateSql = "update user set username = ? , email = ?, phone = ?, address = ?, birthday = ?, password = ? where userid = " + id;
+	String updateSql = "update user set username = ? , email = ?, phone = ?, address = ?, birthday = ?, password = ? where userid = " + sessionId;
 	PreparedStatement PreState = DBM.getPreState(con,updateSql,Statement.RETURN_GENERATED_KEYS);
 	PreState.setString(1,username);
 	PreState.setString(2,email);

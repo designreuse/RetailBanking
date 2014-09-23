@@ -80,7 +80,7 @@
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
             <li class="active">
-                <a href="index.html">
+                <a href="index.jsp">
                     <i class="icon-home"></i>
                     <span>Home</span>
                 </a>
@@ -91,7 +91,7 @@
                     <div class="arrow_border"></div>
                 </div>
                 <!-- transfer page -->
-                <a href="#">
+                <a href="transfer.jsp">
                     <i class="icon-signal"></i>
                     <span>Transfer</span>
                 </a>
@@ -99,26 +99,23 @@
             <li>
             <li>
                <!--  Transaction records -->
-                <a class="dropdown-toggle" href="#">
+                <a href="userAccountFromSignIn.jsp">
                     <i class="icon-edit"></i>
                     <span>Transaction</span>
                     <i class="icon-chevron-down"></i>
                 </a>
-                <ul class="submenu">
-                    <li><a href="form-showcase.html">Form showcase</a></li>
-                    <li><a href="form-wizard.html">Form wizard</a></li>
-                </ul>
+
             </li>
 
             <li>
                 <!-- person info -->
-                <a href="#">
+                <a href="UserProfile.jsp">
                     <i class="icon-cog"></i>
                     <span>My Info</span>
                 </a>
             </li>
             <li>
-                <a class="dropdown-toggle" href="#">
+                <a  href="signin.jsp">
                     <i class="icon-share-alt"></i>
                     <span>Log out</span>
                 </a>
