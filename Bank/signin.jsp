@@ -40,9 +40,7 @@
                 <h6> Please Log in</h6>
                 <input id="un" class="span12" type="text" placeholder="User Name" />
                 <input id="pw"class="span12" type="password" placeholder="Your password" />
-                <span id="wmsg1"style="display:none;">admin</span>
-                <span id="wmsg2"style="display:none;">user</span>
-                <span id="wmsg3"style="display:none;">wrong password or user name</span>
+                <span id="wmsg"></span>
                 <a href="#" id= class="forgot">Forgot password?</a>
                 <div class="remember">
                     <input id="remember-me" type="checkbox" />
@@ -54,7 +52,7 @@
 
         <div class="span4 no-account">
             <p>Don't have an account?</p>
-            <a href="signup.html">Sign up</a>
+            <a href="signup.jsp">Sign up</a>
         </div>
     </div>
 
@@ -74,19 +72,17 @@
                         password: $('#pw').val()
                     },
                     success:function(msg){
-                        if(msg!='error'){
-                        	if(msg=='admin')
-                        	//document.location= 'AdminUser.jsp';
-                        		$("#wmsg1").css("display","inline");
-                        	else if(msg='error'){
-                        	//document.location='user.jsp?user='+msg;
-                        		$("#wmsg3").css("display","inline");
-                        	}
+                    	
+                        if($.trim(msg)!='error'){
+                        	if($.trim(msg)=='admin')
+                        	document.location= 'AdminUser.jsp';
+                        		//$("#wmsg").html("Admin");
                         	else
-                        		$("#wmsg2").css("display","inline");
+                        	document.location='UserProfile.jsp?user='+msg;
+                        		//$("#wmsg").html(msg);
                         }
                         else{
-                        	$("#wmsg3").css("display","inline");
+                        	$("#wmsg").html("wrong password or username");
                         }
                     }
                 });

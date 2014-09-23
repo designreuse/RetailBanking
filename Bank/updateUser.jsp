@@ -3,6 +3,7 @@
 <%@ page import = "java.sql.*, com.bank.*,java.text.DateFormat,java.text.SimpleDateFormat"%>
 
 <%
+Connection con;
 String action = request.getParameter("actionEdit");
 if(action != null && action.trim().equals("post2")){
 	String username = request.getParameter("editusername");
@@ -22,7 +23,7 @@ if(action != null && action.trim().equals("post2")){
 	int id = Integer.parseInt(strId);
 	out.println(id);
 	
-	Connection con = DBM.getConn();
+	con = DBM.getConn();
 	
 	boolean autoCommit = con.getAutoCommit();
 	con.setAutoCommit(false);

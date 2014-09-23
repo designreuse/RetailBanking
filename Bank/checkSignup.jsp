@@ -9,9 +9,11 @@ String dob=request.getParameter("dob");
 String add=request.getParameter("add");
 String city=request.getParameter("city");
 String zip=request.getParameter("zip");
+int ssn =Integer.parseInt(request.getParameter("ssn"));
 String country=request.getParameter("country");
 String address = add+city+zip+country;
-String ssn=request.getParameter("ssn");
+
+
 String email=request.getParameter("email");
 if(name!=""&&pw!=""){
 	java.sql.Date date=null;
@@ -31,7 +33,7 @@ if(name!=""&&pw!=""){
 	ps.setString(2,email);
 	ps.setInt(3,phone);
 	ps.setString(4,address);
-	ps.setString(5,ssn);
+	ps.setInt(5,ssn);
 	ps.setDate(6,date);
 	ps.setString(7,pw);
 	int i =ps.executeUpdate();
@@ -60,7 +62,9 @@ if(name!=""&&pw!=""){
 			ps3.setInt(3,userid);
 			ps3.executeUpdate();
 		    System.out.println(checknum+" "+savenum);
-		    response.sendRedirect("Users.jsp?user=userid");
+		    //session.setAttribute("userid",userid);
+		    response.sendRedirect("copyOfUserProfile.jsp?user="+userid);
+		    //response.sendRedirect("UserProfile.jsp?");
 			DBM.close(ps2);
 			DBM.close(ps3);
 		}else {

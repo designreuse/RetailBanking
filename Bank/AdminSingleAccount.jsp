@@ -6,9 +6,11 @@
 Connection conn = DBM.getConn();
 String strId = request.getParameter("id");
 int id = Integer.parseInt(strId);
+session.setAttribute("id",id);
 String sql = "select * from account where userid = " + id;
 Statement state = DBM.getState(conn);
 ResultSet rs = DBM.executeQuery(state,sql);
+
 
 %>
 
@@ -133,7 +135,7 @@ function init(){
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a href="index.html">
+                <a href="AdminUser.jsp">
                     <i class="icon-home"></i>
                     <span>Users</span>
                 </a>
@@ -236,7 +238,7 @@ function init(){
                         %>
                         <tr class="first">
                             <td>
-                                <a href="user-profile.html" class="name"><%=rs.getInt(1) %></a>
+                                <a href="singleUserTransaction.jsp?accountNum=<%=rs.getInt(1)%>" class="name"><%=rs.getInt(1) %></a>
                             </td>
                             <td>
                                 <%=rs.getString(2) %>
@@ -285,4 +287,9 @@ function init(){
 <script language="javascript"> 
 init(); 
 </script> 
+<%
+DBM.close(conn);
+DBM.close(state);
+DBM.close(rs);
+%>
 </html>

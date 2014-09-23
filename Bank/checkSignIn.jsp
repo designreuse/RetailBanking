@@ -11,23 +11,19 @@ PreparedStatement ps = DBM.getPreState(conn,sql);
 ps.setString(1,user);
 ps.setString(2,pass);
 ResultSet rs=ps.executeQuery();
+int userid = -1;
 while (rs.next()) {
 	System.out.print("userid:"+ rs.getString(1));
+	userid = rs.getInt(1);
 }
-if(user!=""&&pass!=""){
+if(user.trim()!=""&&pass.trim()!=""){
 	
-    if(user.equalsIgnoreCase("admin") && pass.equals("admin") )
-		{
-		out.print("admin");
-		}
-	else if(rs.next()){
-			int userid=rs.getInt(1);
+    if(userid!=-1)
+		if(userid==42)
+			out.print("admin");
+		else
 			out.print(userid);
-		}
-	else
-		{
-		out.print("error");
-		}
+    else out.print("error");
 }
 else out.print("error");
 DBM.close(conn);

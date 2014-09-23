@@ -45,7 +45,9 @@ ResultSet rs = DBM.executeQuery(state,sql);
    }
 %>
 <%
-
+DBM.close(rs);
+DBM.close(state);
+DBM.close(conn);
 %>
 </table>
 </body>

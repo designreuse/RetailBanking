@@ -4,8 +4,17 @@
 <%
 Connection con = DBM.getConn();
 Statement state = DBM.getState(con);
-int id = 30;
-String sql = "select * from user where userid = " + id;
+//String strId = request.getParameter("userid");
+//int id = Integer.parseInt(strId);
+String strId = request.getParameter("user");
+int id = Integer.parseInt(strId);
+session.setAttribute("userid",id);
+String strSessionId = session.getAttribute("userid").toString();
+int sessionId = Integer.parseInt(strSessionId);
+//String strSignInId = request.getParameter("user");
+//int signInId = Integer.parseInt(strSignInId);
+String sql = "select * from user where userid = " + sessionId;
+//String signInSql = "select * from user where userid = " + signInId;
 ResultSet rs = DBM.executeQuery(state,sql);
 
 String action = request.getParameter("action");
@@ -39,7 +48,7 @@ if(action != null && action.trim().equals("post") ){
 	
 
 }
-
+	
 %>
 
 <!DOCTYPE html>
@@ -143,25 +152,18 @@ if(action != null && action.trim().equals("post") ){
             </li>            
             <li>
                 <!-- transfer page -->
-                <a href="#">
+                <a href="transfer.jsp">
                     <i class="icon-signal"></i>
                     <span>Transfer</span>
                 </a>
             </li>
-            <li>
-            <li>
-               <!--  Transaction records -->
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-edit"></i>
+             <li>
+                <!-- transaction page -->
+                <a href="userAccountFromSignIn.jsp">
+                    <i class="icon-signal"></i>
                     <span>Transaction</span>
-                    <i class="icon-chevron-down"></i>
                 </a>
-                <ul class="submenu">
-                    <li><a href="form-showcase.html">Form showcase</a></li>
-                    <li><a href="form-wizard.html">Form wizard</a></li>
-                </ul>
             </li>
-
             <li class="active">
                 <!-- person info -->
                 <div class="pointer">
@@ -173,13 +175,15 @@ if(action != null && action.trim().equals("post") ){
                     <span>My Info</span>
                 </a>
             </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-share-alt"></i>
+             <li>
+                <!-- logout page -->
+                <a href="signin.jsp">
+                    <i class="icon-signal"></i>
                     <span>Log out</span>
                 </a>
-              
             </li>
+            
+           
         </ul>
     </div>
     <!-- end sidebar -->
@@ -275,4 +279,9 @@ if(action != null && action.trim().equals("post") ){
     </script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
+<%
+DBM.close(con);
+DBM.close(state);
+DBM.close(rs);
+%>
 </html>

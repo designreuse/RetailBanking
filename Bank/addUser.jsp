@@ -95,13 +95,6 @@ function init(){
 	document.all.show1.innerText=x; 
 	document.all.show2.innerText=y; 
 	
-	if(i==20){ 
-	var par=document.getElementById("saving");
-	}
-	if(i==10){
-	var par=document.getElementById("checking");  
-	}
-
 	if(i<20){ 
 	timer1=setTimeout("init()",50); 
 		} 
@@ -146,12 +139,7 @@ function init(){
 			<td><label >Checking Account Number: </label></td>
 			<td><input type = "text" name = "checkingNum" id = "show2"></td>
 		</tr>
-		<tr>
-			<td id = "saving"></td>
-		</tr>
-		<tr>
-			<td id = "checking"></td>
-		</tr>
+		
 	</table>
 		<input type = "submit" value = "submit"/>
  </form>

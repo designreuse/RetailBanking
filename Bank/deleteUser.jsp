@@ -17,6 +17,7 @@
 	DBM.executeUpdate(state2,delSql);
 	DBM.close(state2);
 	DBM.close(state1);
+	DBM.close(con);
 	response.sendRedirect("AdminUser.jsp");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

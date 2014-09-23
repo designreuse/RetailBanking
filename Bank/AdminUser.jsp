@@ -7,6 +7,8 @@
 	String showSql = "select * from User";
 	Statement state = DBM.getState(conn);
 	ResultSet rs = DBM.executeQuery(state,showSql);
+	PreparedStatement PreState = null;
+	PreparedStatement PreState2 = null;
 	
 	String action = request.getParameter("action");
 	if(action != null && action.trim().equals("post")){
@@ -35,7 +37,7 @@
 		String password = "123456";
 		int userid = -1;
 		String sql = " insert into user values(null,?,?,?,?,?,?,?)";
-		PreparedStatement PreState = DBM.getPreState(conn,sql,Statement.RETURN_GENERATED_KEYS);
+		PreState = DBM.getPreState(conn,sql,Statement.RETURN_GENERATED_KEYS);
 		PreState.setString(1,username);
 		PreState.setString(2,email);
 		PreState.setInt(3,phone);
@@ -52,7 +54,7 @@
 		String saving= "Saving";
 		String checkingSql = " insert into account values(?,?,null,?)";
 		String savingSql = " insert into account values(?,?,null,?)";
-		PreparedStatement PreState2 = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
+		PreState2 = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState2.setInt(1,checkingNum);
 		PreState2.setString(2,checking);
 		PreState2.setInt(3,userid);
@@ -73,7 +75,6 @@
 		response.sendRedirect("AdminUser.jsp");
 }
 		
-	
 %>
 
 
@@ -203,7 +204,7 @@ function init(){
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a href="index.html">
+                <a href="AdminUser.jsp">
                     <i class="icon-home"></i>
                     <span>Users</span>
                 </a>
@@ -215,7 +216,7 @@ function init(){
                 </a>
             </li>        
             <li>
-                <a  href="#">
+                <a  href="transaction.jsp">
                     <i class="icon-edit"></i>
                     <span>Transaction</span>
                     
@@ -228,17 +229,11 @@ function init(){
                 </a>
             </li>
             <li>
-                <a class="dropdown-toggle" href="#">
+                <a  href="signin.jsp">
                     <i class="icon-share-alt"></i>
-                    <span>Extras</span>
+                    <span>Log Out</span>
                     <i class="icon-chevron-down"></i>
                 </a>
-                <ul class="submenu">
-                    <li><a href="code-editor.html">Code editor</a></li>
-                    <li><a href="grids.html">Grids</a></li>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
             </li>
         </ul>
     </div>
@@ -470,5 +465,10 @@ function init(){
 </body>
 <script language="javascript"> 
 init(); 
-</script> 
+</script>
+<%
+DBM.close(conn);
+DBM.close(state);
+DBM.close(rs);
+%>
 </html>

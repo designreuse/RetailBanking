@@ -7,6 +7,8 @@ Connection conn = DBM.getConn();
 String sql = "select * from account order by userid";
 Statement state = DBM.getState(conn);
 ResultSet rs = DBM.executeQuery(state,sql);
+
+
 %>
 
 <!DOCTYPE html>
@@ -89,7 +91,7 @@ ResultSet rs = DBM.executeQuery(state,sql);
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a href="index.html">
+                <a href="AdminUser.jsp">
                     <i class="icon-home"></i>
                     <span>Users</span>
                 </a>
@@ -167,7 +169,7 @@ ResultSet rs = DBM.executeQuery(state,sql);
                                 <%=rs.getInt(4)%>
                             </td>
                             <td>
-                                <a href="user-profile.html" class="name"><%=rs.getInt(1) %></a>
+                                <a href="AdminUser.jsp" class="name"><%=rs.getInt(1) %></a>
                             </td>
                             <td>
                                 <%=rs.getString(2) %>
@@ -212,4 +214,9 @@ ResultSet rs = DBM.executeQuery(state,sql);
     <script src="js/theme.js"></script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
+<%
+DBM.close(conn);
+DBM.close(state);
+DBM.close(rs);
+%>
 </html>

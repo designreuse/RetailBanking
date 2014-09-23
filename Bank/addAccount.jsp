@@ -6,6 +6,8 @@
 	
 	Connection conn = DBM.getConn();
 	String action = request.getParameter("action");
+	PreparedStatement PreState = null;
+	PreparedStatement PreState2 = null;
 	
 	if(action != null && action.trim().equals("post")){
 		String strCheckingNum = request.getParameter("checkingNum");
@@ -21,12 +23,12 @@
 		String saving= "Saving";
 		String checkingSql = " insert into account values(?,?,null,?)";
 		String savingSql = " insert into account values(?,?,null,?)";
-		PreparedStatement PreState = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
+		PreState = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState.setInt(1,checkingNum);
 		PreState.setString(2,checking);
 		PreState.setInt(3,userid);
 		PreState.executeUpdate();
-		PreparedStatement PreState2 = DBM.getPreState(conn,savingSql,Statement.RETURN_GENERATED_KEYS);
+		PreState2 = DBM.getPreState(conn,savingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState2.setInt(1,savingNum);
 		PreState2.setString(2,saving);
 		PreState2.setInt(3,userid);
@@ -42,6 +44,10 @@
 		//DBM.close(conn);
 		response.sendRedirect("AdminUser.jsp");
 	}
+	
+		DBM.close(conn);
+		DBM.close(PreState);
+		DBM.close(PreState2);
 		
 	
 %>
