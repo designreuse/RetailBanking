@@ -27,11 +27,11 @@ public class transfer_Money extends HttpServlet {
         Statement st = DBM.getState(con);
 
        
-        //HttpSession session = request.getSession();
-        //String strUserId = session.getAttribute("userid").toString();
-        //int userID = Integer.parseInt(strUserId);
+        HttpSession session = request.getSession();
+        String strUserId = session.getAttribute("userid").toString();
+        int userID = Integer.parseInt(strUserId);
         //data get from the form submitted
-        int userID = 40;
+       
         String type = request.getParameter("from");
 
         int toAccount = Integer.parseInt(request.getParameter("to"));
@@ -63,7 +63,7 @@ public class transfer_Money extends HttpServlet {
             //if current balance<=0, return error
             if(currentBalance<=amount){
                 response.setContentType("text/javascript");
-                response.getWriter().println("<h1>alert('not enough balance, please make sure it's more than 0!')</h1>");
+                response.getWriter().println("<script>alert('not enough balance, please make sure it's more than 0!')</script>");
             }
 
             else{
@@ -94,7 +94,7 @@ public class transfer_Money extends HttpServlet {
                 addNewtransaction.setString(6,"transfer");
                 addNewtransaction.setString(7,"processing");
                 addNewtransaction.executeUpdate();
-                response.sendRedirect("transaction.jsp");
+                response.sendRedirect("userAccountFromSignIn.jsp");
 
             }
 

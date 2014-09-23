@@ -3,11 +3,11 @@
 <%@ page import="java.sql.*, com.bank.*, java.util.*"%>
     
 <%
-	String strSid = request.getParameter("sid");
+	String strSid = request.getParameter("accountNum");
 	int sid = Integer.parseInt(strSid);
 	Connection con = DBM.getConn();
 	Statement state1 = DBM.getState(con);
-	String delAccountSql = "delete from account where userid = " + sid;
+	String delAccountSql = "delete from account where accountnumber = " + sid;
 	DBM.executeUpdate(state1,delAccountSql);
 	DBM.close(state1);
 	DBM.close(con);

@@ -216,11 +216,6 @@ ResultSet rs  = prestate.executeQuery();
                                         <span class="label label-success"><%=rs.getInt(3)%></span>
                                     </td>
                                     <td>
-                                        <span class="label label-success">blance</span>
-                                        <ul class="actions">
-                                            <li><i class="table-edit"></i></li>
-                                            <li class="last"><i class="table-delete"></i></li>
-                                        </ul>
                                     </td>
                                 </tr>
 							<%

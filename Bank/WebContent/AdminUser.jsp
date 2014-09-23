@@ -9,8 +9,9 @@
 	ResultSet rs = DBM.executeQuery(state,showSql);
 	PreparedStatement PreState = null;
 	PreparedStatement PreState2 = null;
-	
 	String action = request.getParameter("action");
+	int checkingNumfirst =(int)Math.floor(Math.random()*100000000);
+    int savingNumfirst =(int)Math.floor(Math.random()*100000000);
 	if(action != null && action.trim().equals("post")){
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
@@ -116,46 +117,7 @@
         }
                         
 </script>
-<script language="javascript"> 
-var i=0; 
-var timer1; 
 
-function doPrint() { 
-//bdhtml=window.document.body.innerHTML; 
-//sprnstr="<!--startprint-->"; 
-//eprnstr="<!--endprint-->"; 
-//prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); 
-//prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); 
-//window.document.body.innerHTML=prnhtml; 
-window.print(); 
-// window.document.body.innerHTML=bdhtml; 
-
-
-} 
-
-function init(){ 
-
-	x=Math.random(); 
-	x=Math.floor(x*100000000); 
-	y=Math.random();
-	y=Math.ceil(y*100000000)
-	if(x<9999999){ 
-	init(); 
-	}
-	else{ 
-	i++; 
-	document.all.show1.innerText=x; 
-	document.all.show2.innerText=y; 
-	
-	if(i<20){ 
-	timer1=setTimeout("init()",50); 
-		} 
-
-	} 
-
-} 
-
-</script> 
     <!-- navbar -->
     <div class="navbar navbar-inverse">
         <div class="navbar-inner">
@@ -287,7 +249,7 @@ function init(){
                         <form action = "AdminUser.jsp" method = "post">
 						<input type = "hidden" name = "action" value = "post" />
                         <div class="modal-header" style="padding:20px;">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <h4 class="modal-title">Add User</h4>
                         </div>
                         <div class="modal-body">
@@ -315,14 +277,16 @@ function init(){
                         <div class=" field-box">
                         <label>Birthday:</label>
                         <div class="address-fields">
-                        <input class="span9" type="text" placeholder="birthday" name = "birthday" />
+                        <input class="span9" type="text" placeholder="xxxx-xx-xx" name = "birthday" />
 						<div class=" field-box">
                         <label>Saving Account Number:</label>
-                        <input class="span9" type="text" name = "savingNum" id = "show1"/>
+                         <input  name ="savingNum"value="<%=savingNumfirst%>"readonly/>
+                        
                         </div>
 						<div class=" field-box">
                         <label>Checking Account Number:</label>
-                        <input class="span9" type="text" name = "checkingNum" id = "show2"/>
+                        <input  name = "checkingNum" value="<%=checkingNumfirst %>"readonly/>
+                     
                         </div>
                         
                         </div>
@@ -387,13 +351,14 @@ function init(){
 							%>
 							
                             <div id="editUser" class="modal hide fade" role="dialog">
+                            
                             <div class="modal-dialog">
                             <div class="modal-content">
                             <form action = "updateUser.jsp" method = "post">
-                            <input type = "text" id = "setTransactionID" name = "getTransactionID">
+                            <input type = "hidden" id = "setTransactionID" name = "getTransactionID">
                             <input type = "hidden" name = "actionEdit" value = "post2" />
                             <div class="modal-header" style="padding:20px;">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                             <h4 class="modal-title">Update User</h4>
                             </div>
                             <div class="modal-body">
@@ -463,9 +428,7 @@ function init(){
     <script src="js/theme.js"></script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
-<script language="javascript"> 
-init(); 
-</script>
+
 <%
 DBM.close(conn);
 DBM.close(state);
