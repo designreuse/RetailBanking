@@ -8,3 +8,26 @@
             receive.setDouble(1,Double.parseDouble(request.getParameter("amount")));
             receive.setInt(2,Integer.parseInt(request.getParameter("to")));
             receive.executeUpdate();
+
+
+
+ <button id="submit" class="btn-glow inverse pull-right">Submit</button>
+
+        $(function(){
+            $("#submit").click(function(){
+                $.post("transfer",{
+                   from:$("input[name=from]").val(),
+                   to:$("input[name=to]").val(),
+                    amount:$("input[name=amount]").val(),
+                    description:$("input[name=description]").val()
+                },
+                function(data){
+                    $.html(data);
+
+                }
+                );
+            });
+        });
+        
+         response.getWriter().println("<script type='application/javascript'>alert(\"not enough balance, please make sure it's more than 0!\");location.href='transfer.jsp';</script>");
+            
