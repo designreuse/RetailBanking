@@ -1,0 +1,10 @@
+  String sqlSenderUpdate="update account set balance= balance-? where accountnumber = ?";
+            String sqlReceiverUpdate="update account set balance= balance+? where accountnumber = ?";
+            PreparedStatement send = DBM.getPreState(con,sqlSenderUpdate);
+            send.setDouble(1,Double.parseDouble(request.getParameter("amount")));
+            send.setInt(2,Integer.parseInt(request.getParameter("from")));
+            send.executeUpdate();
+            PreparedStatement receive = DBM.getPreState(con,sqlReceiverUpdate);
+            receive.setDouble(1,Double.parseDouble(request.getParameter("amount")));
+            receive.setInt(2,Integer.parseInt(request.getParameter("to")));
+            receive.executeUpdate();
