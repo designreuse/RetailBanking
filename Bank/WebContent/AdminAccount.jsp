@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*, com.bank.*, java.util.*"%>
-
+<%@ include file = "SessionCheck.jsp" %>
 <%
 Connection conn = DBM.getConn();
 String sql = "select * from account order by userid";
@@ -95,17 +95,24 @@ ResultSet rs = DBM.executeQuery(state,sql);
                     <i class="icon-home"></i>
                     <span>Users</span>
                 </a>
-            </li>            
-            <li>
-                <a href="personal-info.html">
+            </li>  
+             <li>
+                <a href="AdminAccount.jsp">
                     <i class="icon-cog"></i>
-                    <span>My Info</span>
+                    <span>Account</span>
                 </a>
-            </li>
+            </li>        
             <li>
-                <a class="dropdown-toggle" href="#">
+                <a  href="transaction.jsp">
+                    <i class="icon-edit"></i>
+                    <span>Transaction</span>
+                    
+                </a>
+            </li>          
+            <li>
+                <a  href="signin.jsp">
                     <i class="icon-share-alt"></i>
-                    <span>Extras</span>
+                    <span>Log Out</span>
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
@@ -179,8 +186,8 @@ ResultSet rs = DBM.executeQuery(state,sql);
                             </td>
                             <td class="align-right">
                                 <ul class="actions">
-                                    <li><i class="table-edit"></i></li>
-                                    <li class="last"><a  href="deleteAccount.jsp?id=<%=rs.getInt(4)%>"role="button"><i class="table-delete"></i></a></li>
+                                   
+                                    <li class="last"><a  href="deleteSingleAcoount.jsp?accountNum=<%=rs.getInt(1)%>"role="button"><i class="table-delete"></i></a></li>
                                 </ul>
                             </td>
                         </tr>

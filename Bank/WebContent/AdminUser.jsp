@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*, com.bank.*, java.util.*, java.text.DateFormat,java.text.SimpleDateFormat"%>
-
+<%@ include file = "SessionCheck.jsp" %>
 <%
 	Connection conn = DBM.getConn();
 	String showSql = "select * from User";
@@ -53,17 +53,20 @@
 		userid = rsKey.getInt(1);
 		String checking = "Checking";
 		String saving= "Saving";
-		String checkingSql = " insert into account values(?,?,null,?)";
-		String savingSql = " insert into account values(?,?,null,?)";
+		double balance = 0;
+		String checkingSql = " insert into account values(?,?,?,?)";
+		String savingSql = " insert into account values(?,?,?,?)";
 		PreState2 = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState2.setInt(1,checkingNum);
 		PreState2.setString(2,checking);
-		PreState2.setInt(3,userid);
+		PreState2.setDouble(3,balance);
+		PreState2.setInt(4,userid);
 		PreState2.executeUpdate();
 		PreparedStatement PreState3 = DBM.getPreState(conn,savingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState3.setInt(1,savingNum);
 		PreState3.setString(2,saving);
-		PreState3.setInt(3,userid);
+		PreState3.setDouble(3,balance);
+		PreState3.setInt(4,userid);
 		PreState3.executeUpdate();
 		
 		conn.commit();
@@ -111,12 +114,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
-<script language="javascript">
-        function sendTransactionID(id){
-        	document.getElementById("setTransactionID").setAttribute("value",id);
-        }
-                        
-</script>
 
     <!-- navbar -->
     <div class="navbar navbar-inverse">
@@ -182,12 +179,6 @@
                     <i class="icon-edit"></i>
                     <span>Transaction</span>
                     
-                </a>
-            </li>
-            <li>
-                <a href="personal-info.html">
-                    <i class="icon-cog"></i>
-                    <span>My Info</span>
                 </a>
             </li>
             <li>
@@ -329,7 +320,8 @@
 						<% 
                         while(rs.next()){
 						%>
-						<tr class="first">
+						<tr class="first" id="row<%=rs.getInt(1) %>">
+							
                             <td>
                                 <a href="AdminSingleAccount.jsp?id=<%=rs.getInt(1)%>" class="name"><%=rs.getString(2)%></a>
                             </td>
@@ -342,7 +334,7 @@
                             <td class="align-right">
                                 <ul class="actions">
                                     <li onclick = "sendTransactionID(this.id);"id="<%=rs.getInt(1) %>"><a  data-toggle="modal"href="#editUser"role="button"><i class="table-edit"></i></a></li>
-                                    <li class="last"><a  href="deleteUser.jsp?id=<%=rs.getInt(1)%>"role="button"><i class="table-delete"></i></a></li>
+                                    <li class="last deleteUser" id="<%=rs.getInt(1)%>" ><i class="table-delete"></i></li>
                                 </ul>
                             </td>
 							</tr>
@@ -426,6 +418,26 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/theme.js"></script>
+    
+<script language="javascript">
+
+ $(document).ready(function(){
+        $(".deleteUser").click(function(){
+            var userID = this.id;
+            $.get("deleteUser.jsp?UserID="+userID,function(data,status){
+                $("#row"+userID).remove();
+            });
+        });
+
+    });
+    
+        function sendTransactionID(id){
+        document.getElementById("setTransactionID").setAttribute("value",id);
+
+    }
+
+                        
+</script>
 <div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 

@@ -21,17 +21,20 @@
 		int userid = id;
 		String checking = "Checking";
 		String saving= "Saving";
-		String checkingSql = " insert into account values(?,?,null,?)";
-		String savingSql = " insert into account values(?,?,null,?)";
+		double balance = 0;
+		String checkingSql = " insert into account values(?,?,?,?)";
+		String savingSql = " insert into account values(?,?,?,?)";
 		PreState = DBM.getPreState(conn,checkingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState.setInt(1,checkingNum);
 		PreState.setString(2,checking);
-		PreState.setInt(3,userid);
+		PreState.setDouble(3,balance);
+		PreState.setInt(4,userid);
 		PreState.executeUpdate();
 		PreState2 = DBM.getPreState(conn,savingSql,Statement.RETURN_GENERATED_KEYS);
 		PreState2.setInt(1,savingNum);
 		PreState2.setString(2,saving);
-		PreState2.setInt(3,userid);
+		PreState2.setDouble(3,balance);
+		PreState2.setInt(4,userid);
 		PreState2.executeUpdate();
 	
 		

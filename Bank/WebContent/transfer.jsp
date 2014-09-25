@@ -158,7 +158,7 @@
                                 <label>Description :</label>
                                 <textarea class="span6" rows="4" name="description"></textarea>
                             </div>
-                            <button type="submit" class="btn-glow inverse pull-right">Submit</button>
+                             <button id="submit" class="btn-glow inverse pull-right">Submit</button>
             </form>
     </div>
    </div>
@@ -199,6 +199,22 @@
             $(".wysihtml5").wysihtml5({
                 "font-styles": false
             });
+            
+            $(function(){
+            $("#submit").click(function(){
+                $.post("transfer",{
+                   from:$("input[name=from]").val(),
+                   to:$("input[name=to]").val(),
+                    amount:$("input[name=amount]").val(),
+                    description:$("input[name=description]").val()
+                },
+                function(data){
+                    $.html(data);
+
+                }
+                );
+            });
+        });
         });
     </script>
     

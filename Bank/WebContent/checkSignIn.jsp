@@ -19,8 +19,10 @@ while (rs.next()) {
 if(user.trim()!=""&&pass.trim()!=""){
 	
     if(userid!=-1)
-		if(userid==42)
+		if(userid==42){
 			out.print("admin");
+   		    session.setAttribute("adminLogined" , "true");
+		}
 		else
 			out.print(userid);
     else out.print("error");

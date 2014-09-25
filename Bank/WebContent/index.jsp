@@ -169,10 +169,10 @@
                 <!-- morris bar & donut charts -->
                 <div class="row-fluid section">
                     <h4 class="title">
-                        Morris.js
+                   		Chart
                     </h4>
                     <div class="span6 chart">
-                        <h5>Devices sold</h5>
+                        <h5>User expenses</h5>
                         <div id="hero-bar" style="height: 250px;"></div>
                     </div>
                     <div class="span5 chart">

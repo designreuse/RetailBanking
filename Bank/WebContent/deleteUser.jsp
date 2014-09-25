@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*, com.bank.*, java.util.*"%>
     
 <%
-	String strId = request.getParameter("id");
+	String strId = request.getParameter("UserID");
 	int id = Integer.parseInt(strId);
 	Connection con = DBM.getConn();
 	Statement state1 = DBM.getState(con);

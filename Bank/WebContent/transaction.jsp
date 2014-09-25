@@ -1,6 +1,7 @@
 
 <%@ page import="java.io.IOException,com.bank.*,java.sql.*" %>
 <%@ page import="javax.xml.transform.Result" %>
+<%@ include file = "SessionCheck.jsp" %>
 <%! Connection con = DBM.getConn();
     Statement st = DBM.getState(con);
     int transactionID;
@@ -121,14 +122,6 @@
                     <li><a href="form-showcase.html">Form showcase</a></li>
                     <li><a href="form-wizard.html">Form wizard</a></li>
                 </ul>
-            </li>
-
-            <li>
-                <!-- person info -->
-                <a href="#">
-                    <i class="icon-cog"></i>
-                    <span>My Info</span>
-                </a>
             </li>
             <li>
                 <a class="dropdown-toggle" href="#">

@@ -108,15 +108,21 @@ ResultSet rs  = prestate.executeQuery();
                 </a>
             </li>            
             <li>
-                <a href="personal-info.html">
+                <a href="AdminAccount.jsp">
                     <i class="icon-cog"></i>
-                    <span>My Info</span>
+                    <span>Account</span>
+                </a>
+            </li>
+             <li>
+                <a href="transaction.jsp">
+                    <i class="icon-cog"></i>
+                    <span>Transaction</span>
                 </a>
             </li>
             <li>
-                <a class="dropdown-toggle" href="#">
+                <a  href="signin.jsp">
                     <i class="icon-share-alt"></i>
-                    <span>Extras</span>
+                    <span>Log Out</span>
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
@@ -198,9 +204,6 @@ ResultSet rs  = prestate.executeQuery();
                                     <th class="span1">
                                         <span class="line"></span>Amount
                                     </th>
-                                    <th class="span2">
-                                        <span class="line"></span>Blance
-                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -221,13 +224,7 @@ ResultSet rs  = prestate.executeQuery();
                                     <td>
                                         <span class="label label-success"><%=rs.getInt(3) %></span>
                                     </td>
-                                    <td>
-                                        <span class="label label-success">blance</span>
-                                        <ul class="actions">
-                                            <li><i class="table-edit"></i></li>
-                                            <li class="last"><i class="table-delete"></i></li>
-                                        </ul>
-                                    </td>
+                               
                                 </tr>
 							<%
 							}
